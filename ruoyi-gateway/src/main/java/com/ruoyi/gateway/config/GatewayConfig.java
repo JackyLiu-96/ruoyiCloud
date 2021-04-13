@@ -35,23 +35,24 @@ public class GatewayConfig
     {
         return new SentinelGatewayFilter();
     }
-    @PostConstruct
-    public void doInit()
-    {
-        // 加载网关限流规则
-        initGatewayRules();
-    }
-
-    /**
-     * 网关限流规则
-     */
-    private void initGatewayRules()
-    {
-        Set<GatewayFlowRule> rules = new HashSet<>();
-        rules.add(new GatewayFlowRule("ruoyi-system")
-                .setCount(3) // 限流阈值
-                .setIntervalSec(60)); // 统计时间窗口，单位是秒，默认是 1 秒
-        // 加载网关限流规则
-        GatewayRuleManager.loadRules(rules);
-    }
+    
+//    @PostConstruct
+//    public void doInit()
+//    {
+//        // 加载网关限流规则
+//        initGatewayRules();
+//    }
+//
+//    /**
+//     * 网关限流规则
+//     */
+//    private void initGatewayRules()
+//    {
+//        Set<GatewayFlowRule> rules = new HashSet<>();
+//        rules.add(new GatewayFlowRule("ruoyi-system")
+//                .setCount(3) // 限流阈值
+//                .setIntervalSec(60)); // 统计时间窗口，单位是秒，默认是 1 秒
+//        // 加载网关限流规则
+//        GatewayRuleManager.loadRules(rules);
+//    }
 }
